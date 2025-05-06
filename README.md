@@ -23,9 +23,9 @@ Una aplicación de carrito de compras construida con **Flutter**, que consume pr
 ## 📱 Validaciones
 
 <p align="center">
-  <img src="cart/cart1.png" alt="Sign in" width="170"/>
-  <img src="cart/product1.png.png" alt="Home" width="170"/>
-  <img src="cart/product2.png.png" alt="Drawer" width="170"/>
+  <img src="cart/cart1.png" alt="Validación del carrito" width="170"/>
+  <img src="cart/product1.png" alt="Mensaje de agregar producto al carrito" width="170"/>
+  <img src="cart/product2.png" alt="Validación de agregar producto al carrito" width="170"/>
 </p>
 
 ---
