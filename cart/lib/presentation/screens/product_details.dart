@@ -32,87 +32,76 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
         iconTheme: IconThemeData(color: Colors.white),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(10),
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.network(image, height: 200),
-              SizedBox(height: 20),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 24),
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.attach_money, color: Colors.green),
-                      Text(
-                        '$price',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  Row(
-                    children: [
-                      Icon(Icons.star, color: Colors.yellow),
-                      Text(
-                        "$rate",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-
-              Text(
-                description,
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
-              ),
-              SizedBox(height: 20),
-
-              ElevatedButton(
-                onPressed: () {
-                  final Cart newProduct = Cart(
-                    id: id,
-                    count: 1,
-                    image: image,
-                    price: price,
-                    rate: rate,
-                    title: title,
-                    total: price,
-                  );
-                  Provider.of<CartProvider>(
-                    context,
-                    listen: false,
-                  ).addProductsCart(newProduct);
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  minimumSize: Size(400, 50),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                Image.network(image, height: 200),
+                SizedBox(height: 20),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 24),
                 ),
-                child: Text(
-                  'Añadir al carrito',
-                  style: TextStyle(color: Colors.white),
+                SizedBox(height: 20),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.attach_money, color: Colors.green),
+                    Text('$price', style: TextStyle(fontSize: 18)),
+                    SizedBox(width: 10),
+                    Icon(Icons.star, color: Colors.yellow),
+                    Text("$rate", style: TextStyle(fontSize: 18)),
+                  ],
                 ),
-              ),
-            ],
+
+                SizedBox(height: 20),
+                Text(
+                  description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                ),
+                SizedBox(height: 40),
+
+                ElevatedButton(
+                  onPressed: () {
+                    final Cart newProduct = Cart(
+                      id: id,
+                      count: 1,
+                      image: image,
+                      price: price,
+                      rate: rate,
+                      title: title,
+                      total: price,
+                    );
+                    Provider.of<CartProvider>(
+                      context,
+                      listen: false,
+                    ).addProductsCart(newProduct);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(200, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    'Añadir al carrito',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
           ),
-        ],
+        ),
       ),
     );
   }

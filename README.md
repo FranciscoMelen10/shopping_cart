@@ -20,6 +20,16 @@ Una aplicación de carrito de compras construida con **Flutter**, que consume pr
 
 ---
 
+## 📱 Validaciones
+
+<p align="center">
+  <img src="cart/cart1.png" alt="Sign in" width="170"/>
+  <img src="cart/product1.png.png" alt="Home" width="170"/>
+  <img src="cart/product2.png.png" alt="Drawer" width="170"/>
+</p>
+
+---
+
 ## 🧩 Funcionalidades
 
 - Listado de productos desde la API [FakeStoreAPI](https://fakestoreapi.com/products)

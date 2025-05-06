@@ -1,4 +1,5 @@
 import 'package:cart/models/cart.dart';
+import 'package:cart/presentation/widgets/customToast.dart';
 import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {
@@ -61,10 +62,21 @@ class CartProvider extends ChangeNotifier {
     final indexProduct = _cart.indexWhere((p) => p.id == id);
 
     if (indexProduct == -1) {
+      customToast('Este producto ha sido agregado al carrito!', Colors.green);
       return false;
     }
 
+    customToast('Ya existe este producto en el carrito!', Colors.red);
+
     return true;
+  }
+
+  void deleteProduct(int id) {
+    print(id);
+    final indexProduct = _cart.indexWhere((product) => product.id == id);
+
+    _cart.removeAt(indexProduct);
+    notifyListeners();
   }
 
   void removeCart() {
